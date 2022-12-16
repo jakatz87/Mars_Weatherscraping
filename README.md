@@ -37,20 +37,23 @@ I then organized the information to be readable in a json file.
 ```
 
 I then scraped weather data from the Mars Curiosity rover to organize it, analyze it, then export it as a csv file.
-```for rows in mars_data_rows:
+```
+for rows in mars_data_rows:
     row_data = rows.find_all('td')
     data_list.append(row_data)
-    ```
+```
 
-```data2 = []
+```
+data2 = []
 for row in data_list:
     tdlist = []
     for td in row:
         tdlist.append(td.text)
     data2.append(tdlist)
-    ```
+```
 
-```row_heading = ['id','terrestrial_date', 'sol', 'ls', 'month', 'min_temp', 'pressure']
+```
+row_heading = ['id','terrestrial_date', 'sol', 'ls', 'month', 'min_temp', 'pressure']
 mars_df = pd.DataFrame(data2, columns=row_heading)
 ```
 
