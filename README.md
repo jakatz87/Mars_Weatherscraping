@@ -19,8 +19,11 @@ I read HTML code and visited specific websites designed for utilizing web scrapi
 I first used web scraping with Splinter to pull headlines and teasers from articles about Mars.
 
 ```text_elems=news_soup.find_all('div', class_='list_text')```
+
 ```for title in news_soup.find_all('div', class_='content_title'):```
+
 ```for preview in news_soup.find_all('div', class_='article_teaser_body'):```
+
 
 I then organized the information to be readable in a json file.
 
@@ -36,17 +39,20 @@ I then organized the information to be readable in a json file.
 I then scraped weather data from the Mars Curiosity rover to organize it, analyze it, then export it as a csv file.
 ```for rows in mars_data_rows:
     row_data = rows.find_all('td')
-    data_list.append(row_data)```
+    data_list.append(row_data)
+    ```
 
 ```data2 = []
 for row in data_list:
     tdlist = []
     for td in row:
         tdlist.append(td.text)
-    data2.append(tdlist)```
+    data2.append(tdlist)
+    ```
 
 ```row_heading = ['id','terrestrial_date', 'sol', 'ls', 'month', 'min_temp', 'pressure']
-mars_df = pd.DataFrame(data2, columns=row_heading)```
+mars_df = pd.DataFrame(data2, columns=row_heading)
+```
 
 I then used what I had scraped to create a Pandas DataFrame:
 
